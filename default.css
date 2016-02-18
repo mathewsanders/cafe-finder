@@ -1,0 +1,107 @@
+/* Not great practice, but for a quick start I like to reset all elements to 1rem */
+* {
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+body {
+  padding: 0; margin: 0;
+  font-family: Helvetica;
+  line-height: 120%;
+}
+
+/* styles specific for navigation container */
+
+nav {
+  margin: 0.5em 1em;
+  padding: 1em;
+  overflow: auto;
+}
+
+nav h1 {
+  display: inline;
+  float: left;
+}
+
+nav a, a {
+  color: #37BFD7;
+}
+
+#sort {
+  list-style: none;
+  display: inline;
+  margin: 0;
+  float:right;
+}
+
+#sort li {
+  display: inline;
+  font-weight: bold;
+}
+
+/* styles specific for container of grid of cards */
+
+main {
+  margin: 0;
+  padding: 1em;
+  background: #F8F8F8;
+}
+
+/* styles specific for our cafe card */
+
+.cafe-card {
+  display: inline-block;
+  margin: 1em;
+  padding: 1em;
+  padding-top: 1.5em;
+  width: 14em;
+  height: 23em;
+  background: white;
+  border: 1px solid #C0C0C0;
+  position: relative;
+  text-align: left;
+}
+
+.cafe-card:after {
+  content: " ";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -1px;
+  height: 10px;
+  background: #D0021B;
+  border: 1px solid #D0021B;
+}
+
+.description {
+  height: 5em;
+  overflow: hidden;
+}
+
+dl {
+  margin: 0.5em 0;
+}
+
+dt {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+dd {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.map {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0em;
+  height: 10em;
+  background: #F8F8F8;
+}
