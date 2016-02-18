@@ -3,8 +3,8 @@
   <nav>
     <h1>☕️ Coffee Finder <a >New York</a></h1>
     <ul id="sort">
-      <li><a href="#" @click="setSortOrder('distanceMeters')">Nearby</a></li>
-      <li><a href="#" @click="setSortOrder('name')">Name</a></li>
+      <li><a href="#" @click.prevent="setSortOrder('distanceMeters')">Nearby</a></li>
+      <li><a href="#" @click.prevent="setSortOrder('name')">Name</a></li>
     </ul>
   </nav>
 
@@ -39,6 +39,9 @@ export default {
   },
   // this defines a method that is called when this component is ready to display
   ready: function () {
+
+    // update the page title when this component is shown
+    document.title = "Coffee Finder ☕️ New York"
 
     var listCafesUrl = baseUrl + '/cafes'
 
