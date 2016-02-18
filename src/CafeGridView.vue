@@ -19,50 +19,15 @@
 <!-- logic code -->
 <script>
 
-// our data structure that holds information about the cafes we want to display
-var cafeData = [
-  {
-    name: "Cafe Grumpy",
-    address: "224 W 20th St, New York, NY 10011",
-    hours: "7am — 8pm",
-    description: "Hip local coffeehouse chain serving a range of house-roasted brews in a relaxed setting.",
-    distanceMeters: 100
-  },
-  {
-    name: "Gimmie! Coffee",
-    address: "228 Mott St, New York, NY 10012",
-    hours: "7am — 8pm",
-    description: "Espresso, drip brews & small-batch roasted coffee beans are the draws at this small cafe.",
-    distanceMeters: 50
-  },
-  {
-    name: "Underline",
-    address: "511 W 20th St, New York, NY 10011",
-    hours: "7am — 6pm",
-    description: "Hip cafe offering espresso drinks, pour-overs & elevated toast in a petite, brick-walled setting.",
-    distanceMeters: 2000
-  },
-  {
-    name: "Stumptown",
-    address: "Ace Hotel New York, 18 W 29th St, New York, NY 10001",
-    hours: "6am — 8pm",
-    description: "Coffee bar chain offering house-roasted direct-trade coffee, along with brewing gear & whole beans.",
-    distanceMeters: 2500
-  },
-  {
-    name: "Third Rail",
-    address: "New York University, 240 Sullivan St, New York, NY 10012",
-    hours: "7am — 8pm",
-    description: "Small, cash-only spot draws serious caffeine lovers with wide selection of brews & baked goods.",
-    distanceMeters: 250
-  }
-]
+// you'll need to update your ID based on the book you create on Fieldbook
+var bookId = '56c3c166589a1f0300c53acd'
+var baseUrl = 'https://api.fieldbook.com/v1/' + bookId
 
 export default {
   // make 'cafes' and 'cafeSortOrder' avalaible as data avalaible for this component to use
   data: function() {
     return {
-      cafes: cafeData,
+      cafes: [],
       cafeSortOrder: 'distanceMeters'
     }
   },
@@ -71,6 +36,18 @@ export default {
     setSortOrder: function (sortOrder) {
       this.cafeSortOrder = sortOrder
     }
+  },
+  // this defines a method that is called when this component is ready to display
+  ready: function () {
+
+    var listCafesUrl = baseUrl + '/cafes'
+
+    // request content from a URL, and then when we have the response update our 'cafes' property
+    this.$http.get(listCafesUrl).then(function (response) {
+        this.cafes = response.data
+    }, function (response) {
+        // error callback
+    })
   }
 }
 </script>
