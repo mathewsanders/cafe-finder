@@ -13,6 +13,7 @@
       <div class="details">
         <h1>Cafe Card</h1>
         <p>The cafe card shows information about a specific cafe including a description, hours, and the cafe's location.</p>
+        <textarea v-model="cafe | json"></textarea>
       </div>
       <div class="component">
         <cafe-card :cafe="cafe"></cafe-card>
@@ -23,6 +24,7 @@
       <div class="details">
         <h1>Google Map</h1>
         <p>The google map simply shows a location with the option to open Google Maps for more information.</p>
+        <textarea v-model="place | json"></textarea>
       </div>
       <div class="component">
         <google-map :place="place.address"></google-map>
@@ -74,11 +76,19 @@ main section {
   position: relative;
 }
 
+section textarea {
+  min-height: 10em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+	width: 100%;
+  padding: 0.5em;
+  font-size: 0.8em;
+}
+
 section div {
   display: table-cell;
   width: 50%;
   vertical-align: top;
-
   padding: 0.5em;
 }
 
