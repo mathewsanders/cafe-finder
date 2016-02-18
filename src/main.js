@@ -4,11 +4,13 @@ import Vue from 'vue'
 // turn on dubugging messages
 Vue.config.debug = true
 
-// import our CafeCard component
+// import our component
 import CafeCard from './CafeCard.vue'
+import GoogleMap from './GoogleMap.vue'
 
-// tell vue that we'll use <cafe-card> as the tag for our component
+// tell vue the tags we want to use for our components
 Vue.component('cafe-card', CafeCard)
+Vue.component('google-map', GoogleMap)
 
 // our data structure that holds information about the cafes we want to display
 var cafeData = [

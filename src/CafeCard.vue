@@ -11,7 +11,7 @@
       <dt>Address</dt>
       <dd>{{ cafe.address }}</dd>
     </dl>
-    <div class="map"></div>
+    <google-map :place="cafe.address" class="map"></google-map>
   </div>
 </template>
 
