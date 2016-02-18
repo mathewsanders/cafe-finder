@@ -3,14 +3,14 @@
   <nav>
     <h1>☕️ Coffee Finder <a >New York</a></h1>
     <ul id="sort">
-      <li><a href="#">Nearby</a></li>
-      <li><a href="#">Name</a></li>
+      <li><a href="#" @click="setSortOrder('distanceMeters')">Nearby</a></li>
+      <li><a href="#" @click="setSortOrder('name')">Name</a></li>
     </ul>
   </nav>
 
   <main>
     <cafe-card
-      v-for="cafe in cafes"
+      v-for="cafe in cafes | orderBy cafeSortOrder"
       :cafe="cafe">
     </cafe-card>
   </main>
@@ -25,39 +25,51 @@ var cafeData = [
     name: "Cafe Grumpy",
     address: "224 W 20th St, New York, NY 10011",
     hours: "7am — 8pm",
-    description: "Hip local coffeehouse chain serving a range of house-roasted brews in a relaxed setting."
+    description: "Hip local coffeehouse chain serving a range of house-roasted brews in a relaxed setting.",
+    distanceMeters: 100
   },
   {
     name: "Gimmie! Coffee",
     address: "228 Mott St, New York, NY 10012",
     hours: "7am — 8pm",
-    description: "Espresso, drip brews & small-batch roasted coffee beans are the draws at this small cafe."
+    description: "Espresso, drip brews & small-batch roasted coffee beans are the draws at this small cafe.",
+    distanceMeters: 50
   },
   {
     name: "Underline",
     address: "511 W 20th St, New York, NY 10011",
     hours: "7am — 6pm",
-    description: "Hip cafe offering espresso drinks, pour-overs & elevated toast in a petite, brick-walled setting."
+    description: "Hip cafe offering espresso drinks, pour-overs & elevated toast in a petite, brick-walled setting.",
+    distanceMeters: 2000
   },
   {
     name: "Stumptown",
     address: "Ace Hotel New York, 18 W 29th St, New York, NY 10001",
     hours: "6am — 8pm",
-    description: "Coffee bar chain offering house-roasted direct-trade coffee, along with brewing gear & whole beans."
+    description: "Coffee bar chain offering house-roasted direct-trade coffee, along with brewing gear & whole beans.",
+    distanceMeters: 2500
   },
   {
     name: "Third Rail",
     address: "New York University, 240 Sullivan St, New York, NY 10012",
     hours: "7am — 8pm",
-    description: "Small, cash-only spot draws serious caffeine lovers with wide selection of brews & baked goods."
+    description: "Small, cash-only spot draws serious caffeine lovers with wide selection of brews & baked goods.",
+    distanceMeters: 250
   }
 ]
 
 export default {
-  // make this 'cafes' property avalaible as data for this component
+  // make 'cafes' and 'cafeSortOrder' avalaible as data avalaible for this component to use
   data: function() {
     return {
-      cafes: cafeData
+      cafes: cafeData,
+      cafeSortOrder: 'distanceMeters'
+    }
+  },
+  // add a method that changes 'cafeSortOrder' to whatever value is passed in
+  methods: {
+    setSortOrder: function (sortOrder) {
+      this.cafeSortOrder = sortOrder
     }
   }
 }
