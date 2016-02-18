@@ -16,11 +16,10 @@
     </nav>
 
     <main>
-      <cafe-card name="Cafe Grumpy"></cafe-card>
-      <cafe-card name="Gimmie! Coffee"></cafe-card>
-      <cafe-card name="Underline"></cafe-card>
-      <cafe-card name="Stumptown"></cafe-card>
-      <cafe-card name="Third Rail"></cafe-card>
+      <cafe-card
+        v-for="cafeName in cafeNames"
+        :name="cafeName">
+      </cafe-card>
     </main>
 
     <!-- the link to the script that makes vue avaliable on this page -->
