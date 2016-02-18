@@ -1,7 +1,7 @@
 <!-- template code -->
 <template>
   <div class="cafe-card">
-    <h1>Cafe Grumpy</h1>
+    <h1>{{ name }}</h1>
     <p class="description">Hip local coffeehouse chain serving a range of house-roasted brews in a relaxed setting.</p>
     <dl class="address">
       <dt>Address</dt>
@@ -11,8 +11,15 @@
   </div>
 </template>
 
+<!-- logic code -->
+<script>
+export default {
+  props: ['name']
+}
+</script>
+
 <!-- style code -->
-<style>
+<style scoped>
 .cafe-card {
   display: inline-block;
   margin: 1em;
