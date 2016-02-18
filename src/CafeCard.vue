@@ -1,11 +1,15 @@
 <!-- template code -->
 <template>
   <div class="cafe-card">
-    <h1>{{ name }}</h1>
-    <p class="description">Hip local coffeehouse chain serving a range of house-roasted brews in a relaxed setting.</p>
+    <h1>{{ cafe.name }}</h1>
+    <p class="description">{{ cafe.description }}</p>
+    <dl class="hours">
+      <dt>Hours</dt>
+      <dd>{{ cafe.hours }}</dd>
+    </dl>
     <dl class="address">
       <dt>Address</dt>
-      <dd>224 W 20th St, New York, NY 10011</dd>
+      <dd>{{ cafe.address }}</dd>
     </dl>
     <div class="map"></div>
   </div>
@@ -14,7 +18,7 @@
 <!-- logic code -->
 <script>
 export default {
-  props: ['name']
+  props: ['cafe']
 }
 </script>
 
@@ -30,6 +34,7 @@ export default {
   background: white;
   border: 1px solid #C0C0C0;
   position: relative;
+  float: left;
   text-align: left;
 }
 
@@ -61,6 +66,13 @@ dt {
 dd {
   margin: 0;
   font-size: 0.9em;
+}
+
+.address dd {
+  height: 1.2em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .map {

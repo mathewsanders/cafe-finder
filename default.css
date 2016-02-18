@@ -49,4 +49,5 @@ main {
   margin: 0;
   padding: 1em;
   background: #F8F8F8;
+  overflow: auto;
 }
